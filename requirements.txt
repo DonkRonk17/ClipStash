@@ -1,0 +1,8 @@
+# ClipStash - Dependencies
+# Install with: pip install -r requirements.txt
+
+# Qt6 GUI Framework (required)
+PySide6>=6.5.0
+
+# Optional: Cross-platform clipboard fallback
+# pyperclip>=1.8.0
