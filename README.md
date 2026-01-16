@@ -166,7 +166,6 @@ ClipStash/
 └── LICENSE           # MIT License
 ```
 <img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/ca354e9a-5677-4161-990a-4427b3810c2b" />
-
 ### Contributing
 
 1. Fork the repository
