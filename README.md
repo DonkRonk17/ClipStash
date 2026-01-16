@@ -1,3 +1,5 @@
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/47fd28d7-ae80-4557-8233-7e853c737461" />
+
 # 🗂️ ClipStash - Universal Clipboard History Manager
 
 **Never lose a copied item again!** ClipStash is a lightweight, cross-platform clipboard history manager with a beautiful dark-themed UI.
@@ -163,6 +165,7 @@ ClipStash/
 ├── README.md         # This file
 └── LICENSE           # MIT License
 ```
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/ca354e9a-5677-4161-990a-4427b3810c2b" />
 
 ### Contributing
 
