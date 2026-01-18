@@ -181,7 +181,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## 🙏 Credits
 
-Created by **Logan Smith / Team Brain** at [Metaphy LLC](https://metaphysicsandcomputing.com)
+Created by **Randell Logan Smith and Team Brain** at [Metaphy LLC](https://metaphysicsandcomputing.com)
 
 Part of the HMSS (Heavenly Morning Star System) ecosystem.
 
