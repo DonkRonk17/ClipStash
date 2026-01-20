@@ -37,6 +37,9 @@ class PluginSettingsDialog(QDialog):
     Dialog for managing plugin settings.
     """
     
+    # Constants
+    MAX_SPIN_VALUE = 10000
+    
     def __init__(self, plugin_manager: PluginManager, parent=None):
         super().__init__(parent)
         self.plugin_manager = plugin_manager
@@ -178,7 +181,7 @@ class PluginSettingsDialog(QDialog):
         elif isinstance(value, int):
             widget = QSpinBox()
             widget.setMinimum(0)
-            widget.setMaximum(10000)
+            widget.setMaximum(self.MAX_SPIN_VALUE)
             widget.setValue(value)
             return widget
         

@@ -34,11 +34,13 @@ class PastePredictorPlugin(ClipStashPlugin):
         self._priority = PluginPriority.HIGH
         self._version = "1.0.0"
         
-        # Configuration
-        self.model_path = Path(config.get('model_path', Path.home() / '.clipstash' / 'paste_predictor.pkl')) if config else Path.home() / '.clipstash' / 'paste_predictor.pkl'
-        self.min_training_samples = config.get('min_training_samples', 50) if config else 50
-        self.max_predictions = config.get('max_predictions', 5) if config else 5
-        self.retrain_interval = config.get('retrain_interval', 100) if config else 100  # Retrain every N pastes
+        # Configuration with defaults
+        config = config or {}
+        default_model_path = Path.home() / '.clipstash' / 'paste_predictor.pkl'
+        self.model_path = Path(config.get('model_path', default_model_path))
+        self.min_training_samples = config.get('min_training_samples', 50)
+        self.max_predictions = config.get('max_predictions', 5)
+        self.retrain_interval = config.get('retrain_interval', 100)
         
         # State
         self.model = None

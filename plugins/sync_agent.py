@@ -36,13 +36,14 @@ class SyncAgentPlugin(ClipStashPlugin):
         self._priority = PluginPriority.MEDIUM
         self._version = "1.0.0"
         
-        # Configuration
-        self.sync_server = config.get('sync_server', 'ws://localhost:8765') if config else 'ws://localhost:8765'
-        self.encryption_key = config.get('encryption_key') if config else None
-        self.device_id = config.get('device_id', self._generate_device_id()) if config else self._generate_device_id()
-        self.sync_enabled = config.get('sync_enabled', False) if config else False
-        self.filter_sensitive = config.get('filter_sensitive', True) if config else True
-        self.max_sync_size = config.get('max_sync_size', 1024 * 100) if config else 1024 * 100  # 100KB
+        # Configuration with defaults
+        config = config or {}
+        self.sync_server = config.get('sync_server', 'ws://localhost:8765')
+        self.encryption_key = config.get('encryption_key')
+        self.device_id = config.get('device_id', self._generate_device_id())
+        self.sync_enabled = config.get('sync_enabled', False)
+        self.filter_sensitive = config.get('filter_sensitive', True)
+        self.max_sync_size = config.get('max_sync_size', 1024 * 100)  # 100KB
         
         # State
         self.ws_connection = None

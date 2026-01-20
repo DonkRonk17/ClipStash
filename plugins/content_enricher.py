@@ -48,11 +48,12 @@ class ContentEnricherPlugin(ClipStashPlugin):
         self._priority = PluginPriority.HIGH
         self._version = "1.0.0"
         
-        # Configuration
-        self.enrich_urls = config.get('enrich_urls', True) if config else True
-        self.enrich_code = config.get('enrich_code', True) if config else True
-        self.enrich_text = config.get('enrich_text', True) if config else True
-        self.fetch_timeout = config.get('fetch_timeout', 3.0) if config else 3.0
+        # Configuration with defaults
+        config = config or {}
+        self.enrich_urls = config.get('enrich_urls', True)
+        self.enrich_code = config.get('enrich_code', True)
+        self.enrich_text = config.get('enrich_text', True)
+        self.fetch_timeout = config.get('fetch_timeout', 3.0)
     
     async def initialize(self) -> bool:
         """Initialize the content enricher."""

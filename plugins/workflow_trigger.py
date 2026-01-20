@@ -28,16 +28,20 @@ class WorkflowTriggerPlugin(ClipStashPlugin):
     Triggers automated workflows based on clipboard content patterns.
     """
     
+    # Default enabled triggers
+    DEFAULT_TRIGGERS = [
+        'error_search', 'github_info', 'address_info', 'aws_resource', 'email_draft'
+    ]
+    
     def __init__(self, config: Optional[Dict[str, Any]] = None):
         super().__init__(config)
         self._name = "WorkflowTrigger"
         self._priority = PluginPriority.MEDIUM
         self._version = "1.0.0"
         
-        # Configuration
-        self.enabled_triggers = config.get('enabled_triggers', [
-            'error_search', 'github_info', 'address_info', 'aws_resource', 'email_draft'
-        ]) if config else ['error_search', 'github_info', 'address_info', 'aws_resource', 'email_draft']
+        # Configuration with defaults
+        config = config or {}
+        self.enabled_triggers = config.get('enabled_triggers', self.DEFAULT_TRIGGERS)
         
         # Trigger registry
         self.triggers: Dict[str, Callable] = {}

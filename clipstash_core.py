@@ -100,15 +100,24 @@ class ClipItem:
         }
         
         # Add enhanced fields only if they contain data
-        if (self.metadata.enrichments or self.metadata.predictions or 
-            self.metadata.security_flags or self.metadata.relationships or 
-            self.metadata.tags or self.metadata.confidence_scores):
+        if self._has_metadata():
             base_dict["metadata"] = self.metadata.to_dict()
         
         if self._processed_by:
             base_dict["processed_by"] = self._processed_by
         
         return base_dict
+    
+    def _has_metadata(self) -> bool:
+        """Check if metadata contains any data."""
+        return bool(
+            self.metadata.enrichments or 
+            self.metadata.predictions or 
+            self.metadata.security_flags or 
+            self.metadata.relationships or 
+            self.metadata.tags or 
+            self.metadata.confidence_scores
+        )
     
     @classmethod
     def from_dict(cls, data: dict) -> 'ClipItem':
