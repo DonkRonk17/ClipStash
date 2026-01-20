@@ -213,7 +213,8 @@ class ContentEnricherPlugin(ClipStashPlugin):
                         if og_data:
                             data['opengraph'] = og_data
                         
-                        logger.debug(f"Fetched URL metadata: {data.get('title', 'No title')}")
+                        # Log fetched metadata (use lazy formatting for performance)
+                        logger.debug("Fetched URL metadata: %s", data.get('title', 'No title'))
         
         except ImportError:
             logger.debug("aiohttp or beautifulsoup4 not available for URL enrichment")

@@ -181,7 +181,8 @@ class SecurityMonitorPlugin(ClipStashPlugin):
         
         base_risk = base_risks.get(pattern_type, 0.5)
         
-        # Increase risk with multiple occurrences (logarithmic)
+        # Increase risk with multiple occurrences (logarithmic scaling)
+        # Factor of 0.1 provides gradual increase: 2 occurrences = 1.07x, 10 occurrences = 1.23x
         import math
         multiplier = 1.0 + (math.log(count) * 0.1)
         

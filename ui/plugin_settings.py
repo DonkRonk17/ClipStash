@@ -38,7 +38,7 @@ class PluginSettingsDialog(QDialog):
     """
     
     # Constants
-    MAX_SPIN_VALUE = 10000
+    MAX_SPIN_VALUE = 10000  # Reasonable upper limit for numeric settings (timeout, rate limits, etc.)
     
     def __init__(self, plugin_manager: PluginManager, parent=None):
         super().__init__(parent)
