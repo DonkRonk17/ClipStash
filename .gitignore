@@ -40,3 +40,20 @@ Thumbs.db
 # ClipStash data (don't commit user history)
 .clipstash/
 history.json
+
+# AI Plugin System - User data
+config/plugins.json
+*.pkl
+*.joblib
+*.model
+*.h5
+
+# Test outputs
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Logs
+*.log
+logs/

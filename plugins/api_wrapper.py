@@ -347,7 +347,7 @@ class APIWrapperPlugin(ClipStashPlugin):
         """Check if content is GraphQL query."""
         graphql_keywords = ['query', 'mutation', 'subscription']
         content_lower = content.lower()
-        return any(f'{keyword} ' in content_lower or f'{keyword}{' in content_lower 
+        return any(f'{keyword} ' in content_lower or f'{keyword}' + '{' in content_lower 
                    for keyword in graphql_keywords)
     
     async def _handle_graphql(self, query: str) -> Optional[Dict[str, Any]]:
