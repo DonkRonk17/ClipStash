@@ -1,0 +1,106 @@
+{
+  "SecurityMonitor": {
+    "enabled": true,
+    "config": {
+      "block_sensitive": false,
+      "warn_on_paste": true,
+      "min_risk_score": 0.3,
+      "enabled_patterns": [
+        "api_key",
+        "private_key",
+        "password",
+        "ssn",
+        "credit_card",
+        "jwt_token",
+        "database_url",
+        "bearer_token"
+      ]
+    }
+  },
+  "ContentEnricher": {
+    "enabled": true,
+    "config": {
+      "enrich_urls": true,
+      "enrich_code": true,
+      "enrich_text": true,
+      "fetch_timeout": 3.0
+    }
+  },
+  "PastePredictor": {
+    "enabled": true,
+    "config": {
+      "model_path": "~/.clipstash/paste_predictor.pkl",
+      "min_training_samples": 50,
+      "max_predictions": 5,
+      "retrain_interval": 100
+    }
+  },
+  "ResearchAssistant": {
+    "enabled": true,
+    "config": {
+      "auto_search": true,
+      "max_results": 3,
+      "min_relevance_score": 0.3,
+      "search_timeout": 5.0
+    }
+  },
+  "SyncAgent": {
+    "enabled": false,
+    "config": {
+      "sync_server": "ws://localhost:8765",
+      "encryption_key": null,
+      "device_id": null,
+      "sync_enabled": false,
+      "filter_sensitive": true,
+      "max_sync_size": 102400
+    }
+  },
+  "WorkflowTrigger": {
+    "enabled": true,
+    "config": {
+      "enabled_triggers": [
+        "error_search",
+        "github_info",
+        "address_info",
+        "aws_resource",
+        "email_draft"
+      ]
+    }
+  },
+  "KnowledgeGraph": {
+    "enabled": true,
+    "config": {
+      "min_similarity": 0.5,
+      "max_relationships": 10,
+      "use_spacy": true,
+      "use_transformers": false
+    }
+  },
+  "CollaborativeClipboard": {
+    "enabled": false,
+    "config": {
+      "server_url": "ws://localhost:8766",
+      "username": "anonymous",
+      "auth_token": null,
+      "auto_share": false,
+      "default_space": "personal"
+    }
+  },
+  "SmartTemplates": {
+    "enabled": true,
+    "config": {
+      "min_pattern_count": 3,
+      "similarity_threshold": 0.6,
+      "auto_suggest": true
+    }
+  },
+  "APIWrapper": {
+    "enabled": false,
+    "config": {
+      "auto_execute": false,
+      "safe_mode": true,
+      "max_requests_per_minute": 10,
+      "allowed_domains": ["*"]
+    }
+  }
+}
